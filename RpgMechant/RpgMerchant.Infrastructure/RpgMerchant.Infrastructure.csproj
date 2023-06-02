@@ -30,4 +30,8 @@
       <ProjectReference Include="..\RpgMerchant.Application\RpgMerchant.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common\" />
+    </ItemGroup>
+
 </Project>
