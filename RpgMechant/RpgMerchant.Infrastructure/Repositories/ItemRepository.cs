@@ -4,7 +4,7 @@ using RpgMerchant.Infrastructure.EntityFrameworkCore;
 
 namespace RpgMerchant.Infrastructure.Repositories;
 
-public class ItemRepository:GenericRepository<Item>,IItemRepository
+public class ItemRepository:Repository<Item>,IItemRepository
 {
     public ItemRepository(MerchantDbContext dbContext) : base(dbContext)
     {

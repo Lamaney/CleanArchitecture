@@ -17,10 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\RpgMerchant.Application\RpgMerchant.Application.csproj" />
       <ProjectReference Include="..\RpgMerchant.Infrastructure\RpgMerchant.Infrastructure.csproj" />
     </ItemGroup>

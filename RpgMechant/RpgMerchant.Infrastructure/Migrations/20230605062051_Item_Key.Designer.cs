@@ -11,8 +11,8 @@ using RpgMerchant.Infrastructure.EntityFrameworkCore;
 namespace RpgMerchant.Infrastructure.Migrations
 {
     [DbContext(typeof(MerchantDbContext))]
-    [Migration("20230602144255_Item")]
-    partial class Item
+    [Migration("20230605062051_Item_Key")]
+    partial class Item_Key
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

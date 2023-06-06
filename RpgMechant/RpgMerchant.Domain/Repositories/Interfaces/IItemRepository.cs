@@ -2,7 +2,7 @@
 
 namespace RpgMerchant.Domain.Repositories.Interfaces;
 
-public interface IItemRepository:IGenericRepository<Item>
+public interface IItemRepository:IRepository<Item>
 {
     
 }

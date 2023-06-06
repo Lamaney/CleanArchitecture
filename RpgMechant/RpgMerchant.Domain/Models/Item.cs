@@ -1,7 +1,10 @@
-﻿namespace RpgMerchant.Domain.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RpgMerchant.Domain.Models;
 
 public class Item
 {
+    
     public long Id { get; set; }
 
     public string Name { get; set; }

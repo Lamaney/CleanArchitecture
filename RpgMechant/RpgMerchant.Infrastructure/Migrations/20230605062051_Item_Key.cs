@@ -5,7 +5,7 @@
 namespace RpgMerchant.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Item : Migration
+    public partial class Item_Key : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -1,7 +1,12 @@
-﻿namespace RpgMerchant.Domain.Common.Interfaces;
+﻿using RpgMerchant.Domain.Repositories.Interfaces;
 
-public interface IUnitOfWork
+namespace RpgMerchant.Domain.Common.Interfaces;
+
+public interface IUnitOfWork:IDisposable
 {
-    Task<int> CommitAsync();
-    void Dispose();
+    Task CommitAsync();
+    void Rollback();
+    IRepository<T> GetRepository<T>() where T : class;
+    
+  
 }

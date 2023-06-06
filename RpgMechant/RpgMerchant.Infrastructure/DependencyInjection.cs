@@ -16,12 +16,13 @@ public static class DependencyInjection
     {
         
         services.AddDbContext<MerchantDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("Merchant"),
-                builder => builder.MigrationsAssembly(typeof(MerchantDbContext).Assembly.FullName)));
+                options.UseSqlServer(configuration.GetConnectionString("Merchant"),
+                    builder => builder.MigrationsAssembly(typeof(MerchantDbContext).Assembly.FullName)),
+            ServiceLifetime.Scoped);
 
+        services.AddScoped<IMerchantDbContext>(provider => provider.GetRequiredService<MerchantDbContext>());
+        services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IItemRepository, ItemRepository>();
-        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-        
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
         return services;
