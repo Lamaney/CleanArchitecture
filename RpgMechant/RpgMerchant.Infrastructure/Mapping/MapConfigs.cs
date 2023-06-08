@@ -2,7 +2,7 @@
 using RpgMerchant.Application.Common.Interfaces.Item.Dto;
 using RpgMerchant.Domain.Models;
 
-namespace RpgMerchant.Application.Mapping;
+namespace RpgMerchant.Infrastructure.Mapping;
 
 public class MapConfigs:Profile
 {

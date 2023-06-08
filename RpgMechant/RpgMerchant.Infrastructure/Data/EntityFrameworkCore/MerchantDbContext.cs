@@ -1,10 +1,9 @@
-﻿using System.Reflection;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RpgMerchant.Application.Common.Interfaces;
 using RpgMerchant.Domain.Models;
-using RpgMerchant.Infrastructure.Configurations;
+using RpgMerchant.Infrastructure.Data.Configurations;
 
-namespace RpgMerchant.Infrastructure.EntityFrameworkCore;
+namespace RpgMerchant.Infrastructure.Data.EntityFrameworkCore;
 
 public class MerchantDbContext:DbContext,IMerchantDbContext
 {

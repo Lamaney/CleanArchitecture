@@ -1,8 +1,8 @@
 ﻿using RpgMerchant.Domain.Models;
 using RpgMerchant.Domain.Repositories.Interfaces;
-using RpgMerchant.Infrastructure.EntityFrameworkCore;
+using RpgMerchant.Infrastructure.Data.EntityFrameworkCore;
 
-namespace RpgMerchant.Infrastructure.Repositories;
+namespace RpgMerchant.Infrastructure.Data.Repositories;
 
 public class ItemRepository:Repository<Item>,IItemRepository
 {

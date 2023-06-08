@@ -5,8 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RpgMerchant.Application.Common.Interfaces;
 using RpgMerchant.Domain.Common.Interfaces;
 using RpgMerchant.Domain.Repositories.Interfaces;
-using RpgMerchant.Infrastructure.EntityFrameworkCore;
-using RpgMerchant.Infrastructure.Repositories;
+using RpgMerchant.Infrastructure.Data.EntityFrameworkCore;
+using RpgMerchant.Infrastructure.Data.Repositories;
 
 namespace RpgMerchant.Infrastructure;
 
@@ -24,6 +24,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IItemRepository, ItemRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddAutoMapper(typeof(DependencyInjection));
         
         return services;
     }

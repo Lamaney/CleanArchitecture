@@ -4,5 +4,7 @@ namespace RpgMerchant.Application.Common.Interfaces.Item;
 
 public interface IItemService
 {
-    Task<CreateItemDto> Create(CreateItemDto createItemDto);
+    Task<ItemDto?> Create(CreateItemDto createItemDto);
+
+    Task<ItemDto?> GetItemByIdAsync(long id);
 }

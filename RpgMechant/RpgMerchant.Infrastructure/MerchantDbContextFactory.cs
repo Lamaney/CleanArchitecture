@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using RpgMerchant.Infrastructure.EntityFrameworkCore;
+using RpgMerchant.Infrastructure.Data.EntityFrameworkCore;
 
 namespace RpgMerchant.Infrastructure;
 

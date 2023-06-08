@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RpgMerchant.Domain.Repositories.Interfaces;
-using RpgMerchant.Infrastructure.EntityFrameworkCore;
 
-namespace RpgMerchant.Infrastructure.Repositories;
+namespace RpgMerchant.Infrastructure.Data.Repositories;
 
 public class Repository<T> : IRepository<T> where T : class
 {
 
     private readonly DbContext _context;
     private readonly DbSet<T> _set;
+    
 
     public Repository(DbContext context)
     {
@@ -21,16 +21,18 @@ public class Repository<T> : IRepository<T> where T : class
         return await _set.ToListAsync();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> GetByIdAsync(long id)
     {
         return await _set.FindAsync(id);
     }
 
-    public async Task AddAsync(T entity)
+    public async Task<T> InsertAsync(T entity)
     {
-        await _set.AddAsync(entity);
+        var addedEntity = await _context.Set<T>().AddAsync(entity);
+        return addedEntity.Entity;
     }
 
+    
     public async Task UpdateAsync(T entity)
     {
         _set.Update(entity);

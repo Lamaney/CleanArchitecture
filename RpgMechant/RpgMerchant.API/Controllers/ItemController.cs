@@ -6,7 +6,7 @@ using RpgMerchant.Application.Common.Interfaces.Item.Dto;
 namespace RpgMerchant.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/[controller]")]
 public class ItemController:ControllerBase
 {
 
@@ -17,18 +17,30 @@ public class ItemController:ControllerBase
         _itemService = itemService;
     }
 
-    [HttpGet]
-    public IActionResult Deneme()
+    [HttpGet("getItemById/{id}")]
+    public async Task<IActionResult> GetItemById(long id)
     {
-        return NoContent();
+        var data = await _itemService.GetItemByIdAsync(id);
+
+        if (data is null)
+        {
+            return NotFound();
+        }
+        
+        return Ok(data);
     }
 
-    [HttpPost]
+    [HttpPost("CreateItem")]
     public async Task<IActionResult> CreateItem(CreateItemDto data)
     {
-        await _itemService.Create(data);
+        var entity=await _itemService.Create(data);
 
-        return Ok();
+        if (entity is null)
+        {
+            return BadRequest();
+        }
+
+        return Ok(entity);
     }
     
 }

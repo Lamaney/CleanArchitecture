@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using RpgMerchant.Domain.Common.Interfaces;
+﻿using RpgMerchant.Domain.Common.Interfaces;
 using RpgMerchant.Domain.Repositories.Interfaces;
-using RpgMerchant.Infrastructure.EntityFrameworkCore;
+using RpgMerchant.Infrastructure.Data.EntityFrameworkCore;
 
-namespace RpgMerchant.Infrastructure.Repositories;
+namespace RpgMerchant.Infrastructure.Data.Repositories;
 
 public sealed class UnitOfWork : IUnitOfWork
 {

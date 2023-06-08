@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RpgMerchant.Domain.Models;
 
-namespace RpgMerchant.Infrastructure.Configurations;
+namespace RpgMerchant.Infrastructure.Data.Configurations;
 
 public class ItemConfiguration:IEntityTypeConfiguration<Item>
 {

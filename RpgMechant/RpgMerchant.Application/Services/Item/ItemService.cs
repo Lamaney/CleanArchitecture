@@ -20,19 +20,31 @@ public class ItemService:IItemService
       
     }
 
-    public async Task<CreateItemDto> Create(CreateItemDto createItemDto)
+    public async Task<ItemDto?> Create(CreateItemDto createItemDto)
     {
         try
         {
-            await _repository.AddAsync(_mapper.Map<Domain.Models.Item>(createItemDto));
+            var entity=await _repository.InsertAsync(_mapper.Map<Domain.Models.Item>(createItemDto));
             await _unitOfWork.CommitAsync();
-            return new CreateItemDto();
+            return _mapper.Map<ItemDto>(entity);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _unitOfWork.Rollback();
             throw;
         }
-        
+    }
+
+    public async Task<ItemDto?> GetItemByIdAsync(long id)
+    {
+        try
+        {
+            var entity = _mapper.Map<ItemDto>(await _repository.GetByIdAsync(id));
+            return entity;
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
     }
 }
